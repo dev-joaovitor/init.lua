@@ -83,38 +83,38 @@ return {
 				-- "rust_analyzer",
 				-- "gopls",
 			},
-			handlers = {
-				function(server_name) -- default handler (optional)
-					require("lspconfig")[server_name].setup {
-						capabilities = capabilities
-					}
-				end,
-			},
-			["lua_ls"] = function()
-				local lspconfig = require("lspconfig")
-				lspconfig.lua_ls.setup {
-					capabilities = capabilities,
-					settings = {
-						Lua = {
-							diagnostics = {
-								globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
-							}
-						}
-					}
-				}
-			end,
-			["jdtls"] = function ()
-				require("lspconfig").jdtls.setup({
-					handlers = {
-						['language/status'] = function(_, result)
-							vim.print('***')
-						end,
-						['$/progress'] = function(_, result, ctx)
-							vim.print('---')
-						end,
-					},
-				})
-			end
-		})
-	end
+            handlers = {
+                function(server_name) -- default handler (optional)
+                    print("default lspconfig handler")
+                    require("lspconfig")[server_name].setup {
+                        capabilities = capabilities
+                    }
+                end,
+                -- },
+                ["lua_ls"] = function()
+                    print("setting up lua")
+                    require("lspconfig").lua_ls.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            Lua = {
+                                diagnostics = {
+                                    globals = { "vim" },
+                                }
+                            }
+                        }
+                    }
+                end,
+                ["jdtls"] = function ()
+                    require("lspconfig").jdtls.setup({
+                        handlers = {
+                            ['language/status'] = function(_, result)
+                            end,
+                            ['$/progress'] = function(_, result, ctx)
+                            end,
+                        },
+                    })
+                end,
+            }
+        })
+    end
 }
