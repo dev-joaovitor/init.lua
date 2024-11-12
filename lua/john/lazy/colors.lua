@@ -15,7 +15,7 @@ end
 return {
 	{
 		'shaunsingh/nord.nvim',
-		config = function() SetColorScheme() end 
+		config = function() SetColorScheme() end
 	}
 }
 

@@ -38,7 +38,8 @@ return {
 			"force",
 			{},
 			vim.lsp.protocol.make_client_capabilities(),
-			cmp_lsp.default_capabilities())
+			cmp_lsp.default_capabilities()
+        )
 		cmp.setup({
 			sources = {
 				{name = 'nvim_lsp'},
@@ -53,6 +54,8 @@ return {
 				-- Scroll up and down in the completion documentation
 				['<C-u>'] = cmp.mapping.scroll_docs(-4),
 				['<C-d>'] = cmp.mapping.scroll_docs(4),
+                ['<Tab>'] = cmp.mapping.select_next_item(),
+                ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 			}),
 			snippet = {
 				expand = function(args)
@@ -80,19 +83,18 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"jdtls",
+                "intelephense",
 				-- "rust_analyzer",
 				-- "gopls",
 			},
             handlers = {
                 function(server_name) -- default handler (optional)
-                    print("default lspconfig handler")
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
                 end,
                 -- },
                 ["lua_ls"] = function()
-                    print("setting up lua")
                     require("lspconfig").lua_ls.setup {
                         capabilities = capabilities,
                         settings = {
