@@ -84,6 +84,8 @@ return {
 				"lua_ls",
 				"jdtls",
                 "intelephense",
+                "cssls",
+                "ts_ls",
 				-- "rust_analyzer",
 				-- "gopls",
 			},
@@ -93,7 +95,6 @@ return {
                         capabilities = capabilities
                     }
                 end,
-                -- },
                 ["lua_ls"] = function()
                     require("lspconfig").lua_ls.setup {
                         capabilities = capabilities,
