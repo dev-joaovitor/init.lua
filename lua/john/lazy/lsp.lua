@@ -88,7 +88,6 @@ return {
                 "cssls",
                 "ts_ls",
                 "clangd",
-                "editorconfig-checker",
 				-- "rust_analyzer",
 				-- "gopls",
 			},
