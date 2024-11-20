@@ -11,3 +11,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- saving current file
+-- and formatting
+-- with prettier
+-- gp: get pretty :p
+vim.keymap.set("n", "<leader>gp", ":w<CR>:silent %!prettier --stdin-filepath %<CR>")
