@@ -19,6 +19,7 @@ return {
 				"markdown_inline",
                 "html",
                 "css",
+                "yaml",
 			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
