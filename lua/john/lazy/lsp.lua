@@ -88,6 +88,7 @@ return {
                 "cssls",
                 "ts_ls",
                 "clangd",
+                "eslint",
 				-- "rust_analyzer",
 				-- "gopls",
 			},
@@ -99,7 +100,6 @@ return {
                 end,
                 ["lua_ls"] = function()
                     require("lspconfig").lua_ls.setup {
-                        capabilities = capabilities,
                         settings = {
                             Lua = {
                                 diagnostics = {
