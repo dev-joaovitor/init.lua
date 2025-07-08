@@ -29,6 +29,9 @@ return {
 				vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
 				vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
 				vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+
+                -- show errors
+				vim.keymap.set('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<cr>', opts)
 			end,
 		})
 
@@ -89,6 +92,7 @@ return {
                 "ts_ls",
                 "clangd",
                 "eslint",
+                "sqlls",
 				-- "rust_analyzer",
 				-- "gopls",
 			},
