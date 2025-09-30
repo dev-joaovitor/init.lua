@@ -1,3 +1,2 @@
-require("john.set")
-require("john.remap")
-require("john.lazy_init")
+require("john.config.set")
+require("john.config.lazy")
